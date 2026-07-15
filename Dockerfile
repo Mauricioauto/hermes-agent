@@ -357,5 +357,6 @@ VOLUME [ "/opt/data" ]
 # and exec's the final program so its exit code becomes the container
 # exit code. Without the wrapper-as-ENTRYPOINT, leading-dash args
 # like `--version` would be intercepted by /init's POSIX shell.
+COPY --chown=10000:10000 config.yaml /opt/data/config.yaml
 ENTRYPOINT [ "/init", "/opt/hermes/docker/main-wrapper.sh" ]
 CMD [ ]
